@@ -41,3 +41,18 @@ window.addEventListener("scroll", () => {
     alterStyles(isBackToTopRendered);
   }
 });
+
+const revealSources = () => {
+  if (window.location.hash === '#sources') {
+    document.querySelector('#sources').open = true;
+  }
+};
+
+document.querySelectorAll('a[href="#sources"]').forEach((sourceLink) => {
+  sourceLink.addEventListener('click', () => {
+    document.querySelector('#sources').open = true;
+  });
+});
+
+window.addEventListener('hashchange', revealSources);
+revealSources();
